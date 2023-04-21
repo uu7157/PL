@@ -1,5 +1,5 @@
 class Config:
-    BOT_API_ID = <insert your bot API ID here>
-    BOT_API_HASH = '<insert your bot API hash here>'
-    BOT_TOKEN = '<insert your bot token here>'
-    CHANNEL_ID = <insert your channel ID here>
+    BOT_API_ID = 11727095
+    BOT_API_HASH = '6f36129da1a6050ee10ece4fa99db6f0'
+    BOT_TOKEN = '6056798003:AAGw0mZosiwCeGbqYYYy0WGskLk5S4Xem1s'
+    CHANNEL_ID = -1001842036243
