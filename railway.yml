@@ -1,0 +1,10 @@
+name: my-scraping-bot
+env:
+  BOT_API_ID: ${{ secrets.BOT_API_ID }}
+  BOT_API_HASH: ${{ secrets.BOT_API_HASH }}
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  CHANNEL_NAME: ${{ secrets.CHANNEL_NAME }}
+build:
+  dockerfile: Dockerfile
+deploy:
+  image: registry.railway.app/<your-username>/my-scraping-bot:latest
