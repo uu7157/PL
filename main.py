@@ -32,7 +32,7 @@ def scrape_pastelink() -> List[str]:
         paste_response = requests.get(paste_url)
         paste_soup = BeautifulSoup(paste_response.content, 'html.parser')
         paste_body = paste_soup.find('div', id='body-display').text.strip()
-        message = f'<b>{paste_title}</b> ({paste_views} views, {paste_age})\n\n{paste_body}\n\n'
+        message = f'<b>{paste_title}</b> ({paste_views} views, {paste_age})\n{paste_url}\n\n{paste_body}\n\n'
         messages.append(message)
         scraped_urls.add(paste_url)
     with open(PASTES_FILE, 'w') as f:
