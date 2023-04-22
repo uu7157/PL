@@ -6,6 +6,7 @@ from config import Config
 import time
 import os
 from typing import List
+import textwrap
 
 PASTES_FILE = 'pastes.txt'
 
@@ -41,10 +42,12 @@ def scrape_pastelink() -> List[str]:
     return messages
 
 def send_to_telegram(client: Client, message: Message):
-    messages = scrape_pastelink()
-    for message in messages:
-        client.send_message(chat_id=Config.CHANNEL_ID, text=message, parse_mode='HTML')
-        time.sleep(4)
+    paste_content = scrape_pastelink()
+    for paste in paste_content:
+        paste_chunks = textwrap.wrap(paste, width=4096, replace_whitespace=False)
+        for chunk in paste_chunks:
+            client.send_message(chat_id=Config.CHANNEL_ID, text=chunk, parse_mode='HTML')
+            time.sleep(4)
 
 if __name__ == '__main__':
     client = Client(
