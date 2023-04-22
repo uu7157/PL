@@ -43,7 +43,7 @@ def send_to_telegram(client: Client, message: Message):
     messages = scrape_pastelink()
     for message in messages:
         client.send_message(chat_id=Config.CHANNEL_ID, text=message, parse_mode='HTML')
-        time.sleep(42)
+        time.sleep(10)
 
 if __name__ == '__main__':
     client = Client(
