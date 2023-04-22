@@ -5,6 +5,7 @@ from pyrogram.types import Message
 from config import Config
 import time
 import os
+from typing import List
 
 PASTES_FILE = 'pastes.txt'
 
