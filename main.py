@@ -35,7 +35,7 @@ def scrape_pastelink() -> List[str]:
         message = f'<b>{paste_title}</b> ({paste_views} views, {paste_age})\n{paste_url}\n\n{paste_body}\n\n'
         messages.append(message)
         scraped_urls.add(paste_url)
-        time.sleep(5)
+        time.sleep(1)
     with open(PASTES_FILE, 'w') as f:
         f.write('\n'.join(scraped_urls))
     return messages
@@ -44,7 +44,7 @@ def send_to_telegram(client: Client, message: Message):
     messages = scrape_pastelink()
     for message in messages:
         client.send_message(chat_id=Config.CHANNEL_ID, text=message, parse_mode='HTML')
-        time.sleep(10)
+        time.sleep(4)
 
 if __name__ == '__main__':
     client = Client(
@@ -57,4 +57,4 @@ if __name__ == '__main__':
     with client:
         while True:
             send_to_telegram(client, None)
-            time.sleep(3600)
+            time.sleep(14400)
