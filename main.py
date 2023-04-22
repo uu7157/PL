@@ -35,6 +35,7 @@ def scrape_pastelink() -> List[str]:
         message = f'<b>{paste_title}</b> ({paste_views} views, {paste_age})\n{paste_url}\n\n{paste_body}\n\n'
         messages.append(message)
         scraped_urls.add(paste_url)
+        time.sleep(10)
     with open(PASTES_FILE, 'w') as f:
         f.write('\n'.join(scraped_urls))
     return messages
